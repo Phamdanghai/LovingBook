@@ -1,4 +1,4 @@
-package com.green.java.BookStoreOnlineClient.security;
+package com.green.java.BookStoreOnlineAdmin.security;
 
 import java.io.IOException;
 
@@ -12,21 +12,21 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
-import com.green.java.BookStoreOnlineClient.service.CustomerDetailService;
+import com.green.java.BookStoreOnlineAdmin.service.StaffDetailService;
 
 @Configuration()
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
-	public CustomerDetailService customerDetailService() {
-		return new CustomerDetailService();
+	public StaffDetailService staffDetailService() {
+		return new StaffDetailService();
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/login_error", "/assets/**", "/bootstrap/**", "/css/**", "/fonts/**",
-				"/images/**", "/js/**").permitAll().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/", "/css/**", "/image/**", "**")
+			.permitAll().anyRequest().authenticated();
 	}
-	
+
 }

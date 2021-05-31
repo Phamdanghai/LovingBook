@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body
+{
+    overflow: hidden;
+}
+
+.container
+{
+    position: relative;
+    width: 100%;
+}
+
+.navigation
+{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: #0598ff;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active
+{
+    width: 100px;
+}
+
+.navigation ul 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li
+{
+    position: relative;
+    width: 100%;
+    list-style: none;
+}
+
+.navigation ul li:hover
+{
+    background: #0364be;
+}
+
+.navigation ul li:nth-child(1)
+{
+    margin-bottom: 40px;
+}
+
+.navigation ul li:nth-child(1):hover
+{
+    background: transparent;
+}
+
+.navigation ul li a
+{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #13203b;
+}
+
+.navigation ul li a .icon
+{
+    position: relative;
+    display: block;
+    min-width: 100px;
+    height: 40px;
+    line-height: 80px;
+    text-align: center;
+}
+
+.navigation ul li a .icon .fa
+{
+    color: #fff;
+    font-size: 30px;
+}
+
+.navigation ul li a .title
+{
+    position: relative;
+    display: block;
+    padding: 0px 3px;
+    height: 75px;
+    line-height: 75px;
+    white-space: nowrap;
+    color: #fff;
+}
+
+.main
+{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: #fff;
+    transition: 0.5s;
+}
+
+.main.active
+{
+    width: calc(100% - 100px);
+    left: 100px;
+}
+
+.main .topbar
+{
+    width: 100%;
+    background: #fff;
+    height: 60px;
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle
+{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.toggle::before
+{
+    content: '\f0c9';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 70px;
+    font-size: 30px;
+    text-align: center;
+    color: #0598ff;  
+}
+
+.search
+{
+    position: relative;
+    width: 500px;
+    margin: 13px 0px 0px 0px;
+}
+
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 100px;
+    padding: 5px 10px 5px 10px;
+    padding-left: 40px;
+    outline: none;
+    border: 100px soid #0598ff(0,0,0,0.2);
+}
+
+.search label .fa
+{
+    position: absolute;
+    left: 15px;
+    top: 4px;
+}
+
+.staff
+{
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.staff img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 20px;
+} 
+
+.cardBox .card
+{
+    position: relative;
+    background: #ececec;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.cardBox .card .number
+{
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+}
+
+.cardBox .card .cardName
+{
+    color: #777777;
+}
+
+.cardBox .card .iconBox
+{
+    font-size: 2.0em;
+    color: #0598ff;
+}
+
+.details
+{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    padding-top: 0;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 2fr 1fr;
+}
+
+.details .recentOrder
+{
+    position: relative;
+    min-height: 530px;
+    background: #ececec;
+    padding: 20px;
+}
+
+.cardHeader
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2
+{
+    font-weight: 600;
+}
+
+.btn
+{
+    position: relative;
+    padding: 5px 10px;
+    background: #0598ff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.details table
+{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td
+{
+    font-weight: 600;
+}
+
+.details .recentOrder table tr
+{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.details .recentOrder table tbody tr:last-child
+{
+    border-bottom: none;
+}
+
+.details .recentOrder table tbody tr:hover
+{
+    background: #0598ff;
+    color: #fff;
+}
+
+.details .recentOrder table tr td
+{
+    padding: 9px 5px;
+}
+
+.details .recentOrder table thead tr td:last-child,
+.details .recentOrder table tbody tr td:last-child
+{
+    text-align: right;
+}
+
+.details .recentOrder table thead tr td:nth-child(2),
+.details .recentOrder table tbody tr td:nth-child(2)
+{
+    text-align: right;
+    padding: 20px;
+}
+
+.details .recentOrder table thead tr td:nth-child(3),
+.details .recentOrder table tbody tr td:nth-child(3)
+{
+    text-align: center;
+}
+
+.status
+{
+    position: relative;
+    padding: 2px 4px;
+    background: cross-fade();
+    color: #fff;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.Delivered
+{
+    background: rgb(81, 187, 40);
+}
+
+.Pending
+{
+    background: rgb(202, 108, 31);
+}
+
+.Return
+{
+    background: rgb(33, 207, 170);
+}
+
+.details .recentCustomer
+{
+    position: relative;
+    min-height: 530px;
+    background: #ececec;
+    padding: 20px;
+}
+
+.details .recentCustomer .imgBx
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.details .recentCustomer .imgBx .img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details .recentCustomer table tr td h4 span
+{
+    font-size: 14px;
+    color: #ececec;
+}
+
+.details .recentCustomer table tr:hover
+{
+    background: #0598ff;
+    color: #fff;
+}
+
+.details .recentCustomer table tr td
+{
+    padding: 7px 10px;
+}
+
+.details .recentCustomer table tr td h4
+{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+}
+
+
+
+/* .imgBx
+{
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imgBx img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} */
+
+
+
+
+
