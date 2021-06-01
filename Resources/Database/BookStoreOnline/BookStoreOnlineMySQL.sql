@@ -1,4 +1,5 @@
 create database BookStore;
+drop database BookStore;
 use BookStore;
 
 create table ROLE(
@@ -22,14 +23,15 @@ create table ADDRESS(
 
 create table STAFF(
 	STAFF_ID int not null auto_increment,
-    EMAIL varchar(50) not null unique,
-    PASSWORD varchar(100) null,
+    USERNAME varchar(50) not null unique,
+    PASSWORD varchar(100) not null,
     FIRST_NAME varchar(15) not null,
     LAST_NAME varchar(15) not null,
+    EMAIL varchar(50) null unique,
     AGE int not null,
     GENDER varchar(10) not null,
     PHONE_NUMBER varchar(12) null unique,
-    STATUS tinyint,
+    STATUS tinyint default 1,
     
     primary key (STAFF_ID)
 );
@@ -45,7 +47,7 @@ create table CUSTOMER(
     PHONE_NUMBER varchar(12) null unique,
     RANK_MEMBER int null,
     CREATED_DATE datetime not null,
-    STATUS tinyint,
+    STATUS tinyint default 1,
     
     primary key (CUSTOMER_ID)
 );
@@ -64,7 +66,7 @@ create table ADDRESS_STAFF_CUSTOMER(
     STAFF_ID int null,
     CUSTOMER_ID int null,
     
-    primary key (ADDRESS_ID, STAFF_ID, CUSTOMER_ID),
+    primary key (ADDRESS_ID),
     foreign key (ADDRESS_ID) references ADDRESS(ADDRESS_ID),
     foreign key (CUSTOMER_ID) references CUSTOMER(CUSTOMER_ID),
     foreign key (STAFF_ID) references STAFF(STAFF_ID)
