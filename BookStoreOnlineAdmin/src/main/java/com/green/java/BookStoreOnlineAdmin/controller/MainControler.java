@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class MainControler {
 
-	@GetMapping("/loginForm")
+	@GetMapping("/login")
 	public String showLoginView() {
 		return "login";
-	}	
+	}
+	
+	@GetMapping("/")
+	public String showAdminView() {
+		
+		System.out.println("***********");
+		return "adminHome";
+	}
 
 }

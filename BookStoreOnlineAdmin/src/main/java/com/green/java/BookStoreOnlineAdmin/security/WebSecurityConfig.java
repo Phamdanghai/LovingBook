@@ -25,8 +25,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/", "/css/**", "/image/**", "**")
-			.permitAll().anyRequest().authenticated();
+		http.authorizeRequests().antMatchers("/css/**", "/image/**")
+			.permitAll().anyRequest().authenticated()
+			.and().formLogin().loginPage("/login").permitAll(); // Admin or Staff must login to access their role page
 	}
 
 }
